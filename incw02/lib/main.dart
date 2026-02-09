@@ -27,14 +27,14 @@ class _RunMyAppState extends State<RunMyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Theme Demo',
-      
+
       // TODO: Customize these themes further if desired
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         scaffoldBackgroundColor: Colors.grey[200], // Light mode background
       ),
       darkTheme: ThemeData.dark(), // Dark mode configuration
-      
+
       themeMode: _themeMode, // Connects the state to the app
 
       home: Scaffold(
@@ -45,30 +45,31 @@ class _RunMyAppState extends State<RunMyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // PART 1 TASK: Container and Text
               Container(
-                width: 300,
-                height: 200,
+                width: 220,
+                height: 220,
                 margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  // Use a ternary operator to check theme brightness
-                  color: Theme.of(context).brightness == Brightness.dark 
-                      ? Colors.white 
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
                       : Colors.grey,
-                  borderRadius: BorderRadius.circular(20),
                 ),
                 alignment: Alignment.center,
-                child: const Text(
+                padding: const EdgeInsets.all(20),
+                child: Text(
                   'Mobile App Development Testing',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 18,
+                      ),
                   textAlign: TextAlign.center,
                 ),
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               const Text('Choose the Theme:', style: TextStyle(fontSize: 16)),
-              
+
               const SizedBox(height: 10),
 
               // PART 1 TASK: Controls
@@ -92,4 +93,3 @@ class _RunMyAppState extends State<RunMyApp> {
     );
   }
 }
-        

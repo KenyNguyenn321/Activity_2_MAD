@@ -45,7 +45,8 @@ class _RunMyAppState extends State<RunMyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
                 width: 220,
                 height: 220,
                 margin: const EdgeInsets.all(20),

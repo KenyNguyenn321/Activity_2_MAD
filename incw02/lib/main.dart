@@ -69,11 +69,22 @@ class _RunMyAppState extends State<RunMyApp> {
               const SizedBox(height: 20),
               const Text('Choose the Theme:', style: TextStyle(fontSize: 16)),
               const SizedBox(height: 10),
-              Switch(
-                value: _themeMode == ThemeMode.dark,
-                onChanged: (isDark) {
-                  changeTheme(isDark ? ThemeMode.dark : ThemeMode.light);
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    _themeMode == ThemeMode.dark
+                        ? Icons.nightlight_round
+                        : Icons.wb_sunny,
+                  ),
+                  const SizedBox(width: 10),
+                  Switch(
+                    value: _themeMode == ThemeMode.dark,
+                    onChanged: (isDark) {
+                      changeTheme(isDark ? ThemeMode.dark : ThemeMode.light);
+                    },
+                  ),
+                ],
               ),
             ],
           ),

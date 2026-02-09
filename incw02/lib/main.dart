@@ -66,26 +66,14 @@ class _RunMyAppState extends State<RunMyApp> {
                   textAlign: TextAlign.center,
                 ),
               ),
-
               const SizedBox(height: 20),
-
               const Text('Choose the Theme:', style: TextStyle(fontSize: 16)),
-
               const SizedBox(height: 10),
-
-              // PART 1 TASK: Controls
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => changeTheme(ThemeMode.light),
-                    child: const Text('Light Theme'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => changeTheme(ThemeMode.dark),
-                    child: const Text('Dark Theme'),
-                  ),
-                ],
+              Switch(
+                value: _themeMode == ThemeMode.dark,
+                onChanged: (isDark) {
+                  changeTheme(isDark ? ThemeMode.dark : ThemeMode.light);
+                },
               ),
             ],
           ),
